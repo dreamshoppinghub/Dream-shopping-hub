@@ -1,0 +1,48 @@
+<div class="order-form">
+  <h2>📝 Delivery Details</h2>
+
+  <input id="name" placeholder="Your Name">
+  <input id="mobile" placeholder="Mobile Number">
+  <textarea id="address" placeholder="Full Address"></textarea>
+
+  <button onclick="placeOrder()">Confirm Order (WhatsApp)</button>
+</div>
+order-form input, .order-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.order-form h2 {
+  margin-bottom: 5px;
+}
+let cart = [];
+let total = 0;
+function addToCart(name, price) {
+  cart.push(name + " ₹" + price);
+  total += price;
+  document.getElementById("cartItems").innerHTML = cart.join("<br>");
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+function placeOrder() {
+  let name = document.getElementById("name").value;
+  let mobile = document.getElementById("mobile").value;
+  let address = document.getElementById("address").value;
+
+  if(name=="" || mobile=="" || address==""){
+    alert("Please fill all details");
+    return;
+  }
+  let msg =
+    "🛍️ NEW ORDER\n\n" +
+    "Name: " + name + "\n" +
+    "Mobile: " + mobile + "\n" +
+    "Address: " + address + "\n\n" +
+    "Items:\n" + cart.join("\n") +
+    "\n\nTotal: ₹" + total +
+    "\nPayment: COD / Online";
+}
+upi://pay?pa=8923641085@airtel &pn=Mansika&am=TOTAL&cu=INR
+
+<a href="https://online_dream_shopping13/online dream shop">Instagram</a>
